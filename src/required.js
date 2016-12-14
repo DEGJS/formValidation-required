@@ -1,5 +1,5 @@
 let required = function() {
-    
+
     let messages = {
             requiredMsg: {
                 attribute: 'data-validation-required-message',
@@ -27,7 +27,7 @@ let required = function() {
             if (inputEls) {
                 let isValid = inputEls.every(function(el) {
                     return ((el.value) && (el.value.length > 0));
-                };
+                });
                 if (isValid) {
                     resolve({
                         valid: true

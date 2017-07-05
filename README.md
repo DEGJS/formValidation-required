@@ -46,7 +46,11 @@ let validationOptions = {
         	events: [
         		'focusout',
         		'submit'
-        	]
+        	],
+            events: [
+                'focusout',
+                'submit'
+            ]
         })
     ]
 };
@@ -59,13 +63,13 @@ This rule module contains its own default validation message. However, this mess
 Sample Markup:
 ```html
 <form class="form" data-validation-required-message="This message will override the default rule message.">
-	<fieldset>
-		<div class="js-validation-field" data-validation-required-message="This message will override both the default rule message and the form element message.">
-			<label for="firstname">First Name</label>
-			<input class="js-field-input" type="text" required id="firstname" name="firstname">
-		</div>
-		<button type="submit">Submit</button>
-	</fieldset>
+    <fieldset>
+        <div class="js-validation-field" data-validation-required-message="This message will override both the default rule message and the form element message.">
+            <label for="firstname">First Name</label>
+            <input class="js-field-input" type="text" required id="firstname" name="firstname">
+        </div>
+        <button type="submit">Submit</button>
+    </fieldset>
 </form>
 ```
 
@@ -86,3 +90,5 @@ The data attribute formValidation will check when determining [message hierarchy
 Type: `Array`  
 Default: `['focusout','submit']`  
 An array of DOM events that will cause the rule to run validation on a field (or the entire form, when using `submit`). NOTE: `focusout` should be used in place of `blur` due to event bubbling limitations.
+
+For more detailed usage instructions, see the [formValidation Usage](https://github.com/DEGJS/formValidation#usage) documentation.

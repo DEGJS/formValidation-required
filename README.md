@@ -26,7 +26,7 @@ import formValidation from "DEGJS/formValidation";
 /* Import the Required rule module */
 import required from "DEGJS/formValidation-required";
 
-let	validationOptions = {
+let validationOptions = {
     rules: [
         required
     ]
@@ -39,10 +39,10 @@ let validationInst = formValidation(formElement, validationOptions);
 
 Optionally, default rule settings can be overridden by instantiating the rule as a function and passing options as an object: 
 ```js
-let	validationOptions = {
+let validationOptions = {
     rules: [
         required({
-        	message: 'This message will override both the default rule message.',
+        	message: 'This message will override the default rule message.',
         	events: [
         		'focusout',
         		'submit'
@@ -68,3 +68,21 @@ Sample Markup:
 	</fieldset>
 </form>
 ```
+
+
+## Options
+
+#### options.message
+Type: `String`  
+Default: `This field is required.`  
+The default message displayed when a field fails this rule's validation test.
+
+#### options.messageAttr
+Type: `String`  
+Default: `data-validation-required-message`  
+The data attribute formValidation will check when determining [message hierarchy](https://github.com/DEGJS/formValidation#configuring-error-messages)
+
+#### options.events
+Type: `Array`  
+Default: `['focusout','submit']`  
+An array of DOM events that will cause the rule to run validation on a field (or the entire form, when using `submit`). NOTE: `focusout` should be used in place of `blur` due to event bubbling limitations.

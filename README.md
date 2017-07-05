@@ -15,8 +15,6 @@ Installing formValidation rule modules via JSPM will automatically install the b
 
 
 ## Usage
-For detailed usage instructions, see the [formValidation Usage](https://github.com/DEGJS/formValidation#usage) documentation.
-
 After importing, formValidation rule modules can be instantiated by passing an array of names into a formValidation options object:
 
 Sample Javascript:

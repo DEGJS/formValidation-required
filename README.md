@@ -59,7 +59,7 @@ Sample Markup:
     <fieldset>
         <div class="js-validation-field" data-validation-required-message="This message will override both the default rule message and the form element message.">
             <label for="firstname">First Name</label>
-            <input class="js-field-input" type="text" required id="firstname" name="firstname">
+            <input type="text" required id="firstname" name="firstname">
         </div>
         <button type="submit">Submit</button>
     </fieldset>

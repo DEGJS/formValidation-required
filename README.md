@@ -40,10 +40,6 @@ let validationOptions = {
     rules: [
         required({
         	message: 'This message will override the default rule message.',
-        	events: [
-        		'focusout',
-        		'submit'
-        	],
             events: [
                 'focusout',
                 'submit'

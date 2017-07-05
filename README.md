@@ -24,7 +24,7 @@ import formValidation from "DEGJS/formValidation";
 /* Import the Required rule module */
 import required from "DEGJS/formValidation-required";
 
-let	validationOptions = {
+let validationOptions = {
     rules: [
         required
     ]
@@ -37,7 +37,7 @@ let validationInst = formValidation(formElement, validationOptions);
 
 Optionally, default rule settings can be overridden by instantiating the rule as a function and passing options as an object: 
 ```js
-let	validationOptions = {
+let validationOptions = {
     rules: [
         required({
         	message: 'This message will override both the default rule message.',

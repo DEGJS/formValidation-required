@@ -1,57 +1,50 @@
-let required = function() {
+const required = (options) => {
 
-    let messages = {
-            requiredMsg: {
-                attribute: 'data-validation-required-message',
-                message: 'This field is required.'
-            }
-        },
-        events = [
+    const defaults = {
+        message: 'This field is required.',
+        messageAttr: 'data-validation-required-message',
+        events: [
             'focusout',
             'submit'
-        ];
-
-    function getEvents() {
-        return events;
+        ]
     };
+    let settings = Object.assign({}, defaults, options);
 
-    function isRelevant(containerEl, inputEls) {
-        return inputEls.every(function(el) {
-            return el.getAttribute('required') !== null;
-        });
-    };
+    const getSettings = () => {
+        return settings;
+    }
 
-    function validate(matchingField) {
+    const isRelevant = (field) => {
+        return field.inputEls.some(el => el.getAttribute('required') !== null);
+    }
+
+    const validate = (field) => {
         return new Promise(function(resolve, reject) {
-            let inputEls = matchingField.inputEls;
-            if (inputEls) {
-                let isValid = inputEls.every(function(el) {
-                    return ((el.value) && (el.value.length > 0));
+            if (field.inputEls) {
+                resolve({
+                    valid: field.inputEls.some(el => el.value.length > 0 || el.checked === true)
                 });
-                if (isValid) {
-                    resolve({
-                        valid: true
-                    });
-                } else {
-                    resolve({
-                        valid: false,
-                        message: messages.requiredMsg,
-                        matchingField: matchingField
-                    });
-                }
             } else {
-                reject('no inputs');
+                reject('required: No inputs set.');
             }
-            
         });
-    };
+    }
+
+    const postprocessMessage = (msg) => {
+        if (settings.postprocessMessage && typeof settings.postprocessMessage === 'function') {
+            return settings.postprocessMessage(msg);
+        } else {
+            return msg;
+        }
+    }
 
     return {
-        events: getEvents,
+        settings: getSettings(),
         isRelevant: isRelevant,
-        validate: validate
+        validate: validate,
+        postprocessMessage: postprocessMessage
     };
 
-};
+}
 
 export default required;

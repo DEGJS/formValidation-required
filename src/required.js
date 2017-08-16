@@ -22,7 +22,14 @@ const required = (options) => {
         return new Promise(function(resolve, reject) {
             if (field.inputEls) {
                 resolve({
-                    valid: field.inputEls.some(el => el.value.length > 0 || el.checked === true)
+                    valid: field.inputEls.every(el => {
+                        const elType = el.getAttribute('type');
+                        if (elType === 'checkbox' || elType === 'radio') {
+                            return el.checked === true;
+                        } else {
+                            return el.value.length > 0;
+                        }
+                    })
                 });
             } else {
                 reject('required: No inputs set.');

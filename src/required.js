@@ -21,8 +21,8 @@ const required = (options) => {
     function validate(field) {
         return new Promise(function(resolve, reject) {
             if (field.inputEls) {
-                const firstInputEl = field.inputEls[0];
-                const method = firstInputEl === 'checkbox' || firstInputEl === 'radio' ? 'some' : 'every';
+                const firstInputType = field.inputEls[0].getAttribute('type');
+                const method = firstInputType === 'checkbox' || firstInputType === 'radio' ? 'some' : 'every';
                 resolve({
                     valid: field.inputEls[method](el => {
                         const elType = el.getAttribute('type');

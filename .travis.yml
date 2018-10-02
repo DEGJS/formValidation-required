@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: npm
+  email: scheul93@gmail.com
+  api_key:
+    secure: O9qe2FQjLQZn/TL/MMhR+qHNBeNNG8cn5pLurATHoFLYLGEIap32MqOA3cmomwdnxb9e5pp/VfPaa5PW7EPjI9v8CFYWF/4+p7tDDAq6eIhw8tqC9UtzlwEYr32G3/u4Ia5ADE3WLXnjz7K996bMDsDjGgditnAf0/GORlpZxZTIe/CY5jQ6SxpbttYKy1EKXHZOhBBOX3foqrkNfNCOoZOAaJikSfmrPtGWjvODjS07sWK4SrSpJbyNxb/s7Jw6iULeSNqBTzI9g29wfYsmHLkcmR+xfVPiaz2mLAV4GFwSPu+YoRGFdBEvWZmRM6vFPPO7Zb7E6c4vovw0fM12KLxrHRQbvFW6sQQE9ud+MLuDgpG57Di1PFjFJRcv2GygyTDKBLPNERcuqskACsFA6wDHZwNf7Mwj+gsEBFQBARhwaL7kVH6rWj5ua6us1R2lVvGfxrP1QGM49xfl85wVbeMShYkyUYyEb/cQPKsg/ry7OTTq/TbM/5r+5i9A8vy+ScNtR21oslyEFH4TnUqePuJflnGhDpndoYJ+ui1520ccfEQnei9NOt2/hW/CsoA5ge8XjdYwG7wiu9rj+ZtDmNS7PToQ+yrlBtxlSbqNOSg446/HhXLMNdqEVlI2BhKqIoC8mIh/J0sjj2PkQ/nSujZ6rDCH6KvW2uC5azI5Gvo=
+  on:
+    tags: true
+    branch: master
+    repo: DEGJS/formValidation-required

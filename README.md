@@ -1,5 +1,5 @@
 # formValidation-required
-[![Build Status](https://travis-ci.com/DEGJS/formValidation-required.svg?branch=master)](https://travis-ci.com/DEGJS/formValidation-required)
+![Run Tests](https://github.com/DEGJS/formValidation-required/workflows/Run%20Tests/badge.svg)
 
 A required field rule module for the DEGJS [formValidation](https://github.com/DEGJS/formValidation) module.
 
